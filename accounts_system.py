@@ -10,7 +10,7 @@ class Accounts_system:
         pass
 
     def get_accounts(self) -> list or None:
-        if os.path.isfile('{}.pkl'.format(self.ACCOUNTS_JSON_FILE_NAME)) is True:
+        if os.path.isfile(self.ACCOUNTS_JSON_FILE_NAME) is True:
             return json.load(open(self.ACCOUNTS_JSON_FILE_NAME,))
         else: 
             return False
