@@ -6,25 +6,26 @@
 ## 目錄
 <!-- TOC -->
 
-- [巴哈爬蟲](#%E5%B7%B4%E5%93%88%E7%88%AC%E8%9F%B2)
-    - [目錄](#%E7%9B%AE%E9%8C%84)
-    - [Baha](#baha)
-        - [建構](#%E5%BB%BA%E6%A7%8B)
-            - [完整版建構](#%E5%AE%8C%E6%95%B4%E7%89%88%E5%BB%BA%E6%A7%8B)
-            - [精簡建構](#%E7%B2%BE%E7%B0%A1%E5%BB%BA%E6%A7%8B)
-        - [屬性](#%E5%B1%AC%E6%80%A7)
-        - [可用方法](#%E5%8F%AF%E7%94%A8%E6%96%B9%E6%B3%95)
-    - [Baha_auto_signin](#baha_auto_signin)
-        - [建構](#%E5%BB%BA%E6%A7%8B)
-        - [屬性](#%E5%B1%AC%E6%80%A7)
-        - [可用方法](#%E5%8F%AF%E7%94%A8%E6%96%B9%E6%B3%95)
+- [巴哈爬蟲](#巴哈爬蟲)
+  - [目錄](#目錄)
+  - [Baha()](#baha)
+    - [Baha 建構](#baha-建構)
+      - [Baha 完整版建構](#baha-完整版建構)
+      - [Baha 精簡建構](#baha-精簡建構)
+    - [Baha 屬性](#baha-屬性)
+    - [Baha 可用方法](#baha-可用方法)
+  - [Baha_auto_signin()](#baha_auto_signin)
+    - [Baha_auto_signin 建構](#baha_auto_signin-建構)
+    - [Baha_auto_signin 屬性](#baha_auto_signin-屬性)
+    - [Baha_auto_signin 可用方法](#baha_auto_signin-可用方法)
 
 <!-- /TOC -->
+
 ## Baha()
 
-### 建構
+### Baha 建構
 
-#### 完整版建構
+#### Baha 完整版建構
 ```python
 #reqs 需為 requests.Session() 物件
 #log_file_name 為 str() 物件，為 log 的檔案名稱
@@ -44,7 +45,7 @@ baha = Baha(reqs,  log_file_name, account)
 `reqs` 與 `log_file_name` 皆可不必設定<br>
 `account` 則必須設定，但為方便多次使用，初始建構時可先不必輸入，待之後要使用方法時再給予值<br>
 
-#### 精簡建構
+#### Baha 精簡建構
 ```python
 baha = Baha()
 baha.account = {
@@ -53,7 +54,7 @@ baha.account = {
 }
 ```
 
-### 屬性
+### Baha 屬性
 
 ```python
 self.reqs
@@ -67,7 +68,7 @@ self.MAIN_URL = "https://www.gamer.com.tw" # 主要爬蟲的 URL
 self.USER_URL = "https://user.gamer.com.tw" # 登入請求時 User 相關的 URL
 ```
 
-### 可用方法
+### Baha 可用方法
 
 一切函數皆須`賦值account`後才可使用，若未賦值可能出現未知錯誤
 
@@ -88,12 +89,12 @@ self.USER_URL = "https://user.gamer.com.tw" # 登入請求時 User 相關的 URL
 若無任何帳戶資料，調用 `DEFAULT_ACCOUNTS` 當作簽到帳戶<br>
 獲取複數帳戶資料後遍歷以進行登入與簽到，初次登入與簽到完成後將該帳戶之 `session` 儲存以利之後使用，若下次再次簽到可以抓取該 `session` 以避免重複性登入<br>
 
-### 建構
+### Baha_auto_signin 建構
 ```python
 baha_auto_signin = Baha_auto_signin()
 ```
 
-### 屬性
+### Baha_auto_signin 屬性
 ```python
 self.baha = Baha()
 self.crawler_session = crawler.Session()
@@ -101,7 +102,7 @@ self.accounts_system = Accounts_system()
 self.DEFAULT_ACCOUNTS = [{"uid": "test123qwe","passwd": "test1qa2ws"}]
 ```
 
-### 可用方法
+### Baha_auto_signin 可用方法
 
 | Method               | Argument             | Return                         | Description                          |
 | :------------------- | :------------------- |:------------------------------ |:------------------------------------ |
