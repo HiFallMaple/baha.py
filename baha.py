@@ -140,13 +140,13 @@ class Baha_auto_signin(): # 巴哈自動登入
                 status_dict[account["uid"]]["status"] = signin_status["data"]
             else:
                 print("{} has signed in today".format(account["uid"]))
+                signin_status = self.baha.get_signin_status() # 簽到
+                status_dict[account["uid"]]["login"] = 1
+                status_dict[account["uid"]]["status"] = signin_status["data"]
 
             self.crawler_session.save_session(self.baha.reqs, account["uid"])
             print("Save session of {}".format(account["uid"]))
             print("Renew session")
             self.__renew_baha_session()
-        self.accounts_system.write_accounts_status(status_dict)
+        self.accounts_system.save_accounts_status(status_dict)
         return None
-
-tmp = Baha_auto_signin()
-tmp.run()
