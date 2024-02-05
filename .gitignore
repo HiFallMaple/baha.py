@@ -1,5 +1,2 @@
-baha_crawler_venv/
+venv/
 __pycache__/
-accounts.json
-status.json
-*.pkl
